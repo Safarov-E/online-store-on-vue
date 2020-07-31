@@ -20,13 +20,13 @@
 				<div class="row">
 					<div class="col col-sm-3 menu">
 						<ul class="list-group">
-							
+							<li class="list-group-item">Products</li>
+							<li class="list-group-item">Cart</li>
+							<li class="list-group-item">Checkout</li>
 						</ul>
 					</div>
 					<div class="col col-sm-9">
-						<transition name="slide" mode="out-in">
-							
-						</transition>
+						<router-view></router-view>
 					</div>
 				</div>
 			</div>
