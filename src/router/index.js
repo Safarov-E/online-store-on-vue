@@ -8,6 +8,11 @@ Vue.use(VueRouter)
 
 const routes = [
     {
+        path: '/',
+        redirect: {name: 'products'}
+    },
+    {
+        name: 'products',
         path: '/products',
         component: ProductList
     },
