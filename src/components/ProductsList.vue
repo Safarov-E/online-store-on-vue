@@ -7,11 +7,16 @@
 				:key="product.id_product">
 				<h3>{{ product.title }}</h3>
 				<div>{{ product.price }}</div>
-				<button class="btn btn-primary"
+				<button v-if="inCart.indexOf(product.id_product) === -1"
+						class="btn btn-primary"
 						@click="addToCart(product.id_product)">
 					Add to cart
 				</button>
-				<button class="btn btn-warning">Remove to cart</button>
+				<button v-else
+						class="btn btn-warning"
+						@click="removeFromCart(product.id_product)">
+					Remove to cart
+				</button>
 			</div>
 		</div>
 	</div>
@@ -24,11 +29,15 @@
 		computed: {
 			...mapGetters('products', {
 				products: 'items'
+			}),
+			...mapGetters('cart', {
+				inCart: 'products'
 			})
 		},
 		methods: {
 			...mapActions('cart', {
-				addToCart: 'add'
+				addToCart: 'add',
+				removeFromCart: 'remove'
 			})
 		}
 	}
