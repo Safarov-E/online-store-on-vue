@@ -24,7 +24,8 @@
 										:key="index" 
 										:to="item.url"
 										tag="li"
-										class="list-group-item">
+										class="list-group-item"
+										active-class="active">
 								{{item.text}}
 							</router-link>
 						</ul>
@@ -39,11 +40,12 @@
 </template>
 
 <script>
+	import {mapGetters} from 'vuex'
 	export default {
 		computed: {
-			menuList() {
-				return this.$store.getters['menu/items']
-			}
+			...mapGetters('menu', {
+				menuList: 'items'
+			})
 		}
 	}
 </script>
