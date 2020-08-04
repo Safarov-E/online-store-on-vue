@@ -45,6 +45,9 @@
 		computed: {
 			...mapGetters('menu', {
 				menuList: 'items'
+			}),
+			...mapGetters('cart', {
+				lengthInCart: 'cnt'
 			})
 		}
 	}
