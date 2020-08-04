@@ -21,9 +21,8 @@
 					</tr>
 				</tbody>	
 			</table>
-			<button 
-					class="btn btn-success"
-					>
+			<button @click="onOrder"
+					class="btn btn-success">
 				Order Now
 			</button>
 		</template>
@@ -47,6 +46,11 @@
 			},
 			empty() {
 				return this.products.length === 0;
+			}
+		},
+		methods: {
+			onOrder() {
+				this.$router.push('/checkout')
 			}
 		}
 	}
