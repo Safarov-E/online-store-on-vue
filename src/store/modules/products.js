@@ -1,7 +1,7 @@
 export default {
     namespaced: true,
     state: {
-        items: getProducts()
+        items: []
     },
     getters: {
         items(state) {
@@ -20,28 +20,15 @@ export default {
         }
     },
     mutations: {
-
+        loadItems(state, data) {
+            state.items = data;
+        }
     },
     actions: {
-        
-    }
-}
-function getProducts() {
-    return [
-        {
-            id_product: 1,
-            title: 'Iphone 5',
-            price: 20000
-        },
-        {
-            id_product: 2,
-            title: 'Iphone 6',
-            price: 25000
-        },
-        {
-            id_product: 3,
-            title: 'Iphone 7',
-            price: 30000
+        loadItems(store) {
+            this.$http.get('products.php')
+						.then(response => response.json())
+						.then(data => store.commit('loadItems', data))
         }
-    ]
+    }
 }

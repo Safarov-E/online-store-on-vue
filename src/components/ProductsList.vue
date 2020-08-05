@@ -28,6 +28,9 @@
 	import {mapGetters} from 'vuex'
 	import {mapActions} from 'vuex'
 	export default {
+		created() {
+			
+		},
 		computed: {
 			...mapGetters('products', {
 				products: 'items'
