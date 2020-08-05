@@ -5,7 +5,9 @@
 			<div class="col col-sm-4"
 				v-for="(product) in products"
 				:key="product.id_product">
-				<h3>{{ product.title }}</h3>
+				<router-link tag="h3" :to="'/products/' + product.id_product">
+					<a>{{ product.title }}</a>
+				</router-link>
 				<div>{{ product.price }}</div>
 				<button v-if="inCart.indexOf(product.id_product) === -1"
 						class="btn btn-primary"
