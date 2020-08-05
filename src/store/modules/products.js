@@ -22,12 +22,16 @@ export default {
         }
     },
     mutations: {
+        clearItems(state) {
+            state.items = [];
+        },
         loadItems(state, data) {
             state.items = data;
         }
     },
     actions: {
         loadItems(store) {
+            store.commit('clearItems')
             Vue.http.get('products.php')
                     .then(response => response.json())
                     .then(data => store.commit('loadItems', data))
