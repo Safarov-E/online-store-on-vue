@@ -29,7 +29,7 @@
 	import {mapActions} from 'vuex'
 	export default {
 		created() {
-			
+			this.$store.dispatch('products/loadItems')
 		},
 		computed: {
 			...mapGetters('products', {

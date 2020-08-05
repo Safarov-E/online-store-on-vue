@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 export default {
     namespaced: true,
     state: {
@@ -26,9 +28,9 @@ export default {
     },
     actions: {
         loadItems(store) {
-            this.$http.get('products.php')
-						.then(response => response.json())
-						.then(data => store.commit('loadItems', data))
+            Vue.http.get('products.php')
+                    .then(response => response.json())
+                    .then(data => store.commit('loadItems', data))
         }
     }
 }
