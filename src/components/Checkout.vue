@@ -21,6 +21,18 @@
 				{{loading == false ? 'Send Data' : 'Loading...'}}
 			</button>
 		</form>
+		<transition name="fade" mode="out-in">
+			<div v-if="formSubmited">
+				<table class="table table-bordered">
+					<tbody>
+						<tr v-for="(item, index) in  info" :key="index">
+							<td>{{ item.name }}</td>
+							<td>{{ item.value }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</transition>
 	</div>
 </template>
 
