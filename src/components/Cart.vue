@@ -12,12 +12,18 @@
 					<tr>
 						<th>Title</th>
 						<th>Price</th>
+						<th>Действия</th>
 					</tr>
 				</thead>	
 				<tbody>
 					<tr v-for="product in products" :key="product.title">
 						<td>{{ product.title }}</td>
 						<td>{{ product.price }}</td>
+						<td><img style="cursor: pointer;" 
+								width="35px" 
+								src="../images/iconfinder_basket_1814090.png" alt=""
+								@click="removeFromCart(product.id_product)">
+						</td>
 					</tr>
 				</tbody>	
 			</table>
@@ -30,6 +36,7 @@
 </template>
 
 <script>
+	import {mapActions} from 'vuex'
 	import {mapGetters} from 'vuex'
 	export default {
 		computed: {
@@ -49,6 +56,9 @@
 			}
 		},
 		methods: {
+			...mapActions('cart', {
+				removeFromCart: 'remove'
+			}),
 			onOrder() {
 				this.$router.push('/checkout')
 			}
